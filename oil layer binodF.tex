@@ -1,0 +1,419 @@
+\documentclass[11 pt]{article}
+\parindent 1 pc
+%\RequirePackage{lineno}
+%\usepackage[switch, modulo]{lineno}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{latexsym}
+\usepackage{graphicx,epsfig}
+\usepackage{subfigure}
+\usepackage{graphicx}
+\usepackage{amsmath}
+%\usepackage{cite}
+%\usepackage{psfig,epsfig}
+%\usepackage{setspace}
+%\usepackage{subequation}
+\usepackage[sort&compress,square,comma]{natbib}
+% MACROS AND OTHER SETTING-UP STUFF
+\usepackage[pdfpagelabels=true,plainpages=false,colorlinks=true,linkcolor=red,citecolor=blue,urlcolor=red]{hyperref}
+\usepackage{subfigure}
+\makeatletter
+% Side margins:
+\oddsidemargin 6mm
+\evensidemargin -.1in
+% Text width:
+\textwidth 16cm
+
+% Top margin:
+\topmargin -.1in
+
+% Text height:
+\textheight 22.5cm
+
+% Give footnotes a little more room:
+\renewcommand{\footnotesep}{3.5mm}
+
+% These allow switching interline spacing; the change takes effect immediately:
+\newcommand{\singlespacing}{\let\CS=\@currsize\renewcommand{\baselinestretch}{1}\tiny\CS}
+\newcommand{\oneandahalfspacing}{\let\CS=\@currsize\renewcommand{\baselinestretch}{1.15}\tiny\CS}
+\newcommand{\doublespacing}{\let\CS=\@currsize\renewcommand{\baselinestretch}{1.35}\tiny\CS}
+\newcommand{\mb}{\makebox(0,0)}
+\newcommand{\ve}{\vector(-1,0){.5}}
+\newcommand{\st}{\shortstack[c]}
+%Start with double spacing:
+\doublespacing
+%\oneandahalfspacing
+
+% Allow line breaks and .2em stretch in citation lists:
+\def\@citex[#1]#2{\if@filesw\immediate\write\@auxout{\string\citation{#2}}\fi
+  \def\@citea{}\@cite{\@for\@citeb:=#2\do
+    {\@citea\def\@citea{,\linebreak[0]\hskip0pt plus .2em}%
+      \@ifundefined{b@\@citeb}%
+    {{\bf ?}\@warning{Citation `\@citeb' on page \thepage\space undefined}}%
+      \hbox{\csname b@\@citeb\endcsname}}}{#1}}
+
+% Environments for theorems, lemmas, etc.:
+\newtheorem{theorem}{Theorem}
+\newtheorem{remark}{Remark}
+\newtheorem{note}{Note}
+\newtheorem{preposition}{Preposition}
+\newtheorem{Lemma}{Lemma}
+\newtheorem{corollary}{corollary}
+\newtheorem{definition}{Definition}
+\newtheorem{observation}[theorem]{Observation}
+\newtheorem{fact}{Fact}[theorem]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{rule-def}[theorem]{Rule}
+\newtheorem{example}{Example}
+\date{}
+% Tab for hand-formatting:
+%\setstretch{1.2}
+\begin{document}
+%\setpagewiselinenumbers
+%\modulolinenumbers[1]
+%\linenumbers
+%\linenumbers
+%\setcounter{chapter}{1}
+\newcommand{\be}{\begin{equation}}
+\newcommand{\ee}{\end{equation}}
+\newcommand{\bea}{\begin{eqnarray}}
+\newcommand{\eea}{\end{eqnarray}}
+\newcommand{\nn}{\nonumber}
+\newcommand{\ba}{\begin{array}}
+\newcommand{\ea}{\end{array}}
+\newcommand{\lb}{\label}
+\newcommand{\ben}{\begin{enumerate}}
+\newcommand{\een}{\end{enumerate}}
+\newcounter{saveeqn}
+\newcommand{\alpheqn}{\setcounter{saveeqn}{\value{equation}}%
+\stepcounter{saveeqn}\setcounter{equation}{0}%
+\renewcommand{\theequation}{\mbox{\arabic{saveeqn}\alph{equation}}}}
+\newcommand{\reseteqn}{\setcounter{equation}{\value{saveeqn}}%
+\renewcommand{\theequation}{\arabic{equation}}}
+%\pagestyle{myheadings}
+%\markboth{}
+\thispagestyle{empty}
+%\begin{center}
+%{\bf Section: Mathematical Sciences (including statistics)\\YOUNG SCIENTIST'S PROGRAMME, 2012-2013}
+%\end{center}
+%%\vspace{5mm}
+
+
+\title{\textbf{Electrophoresis of colloidal particle covered with dielectric oil layer}}
+%
+%\author{ Santanu Saha$^{a}$, Partha P. Gopmandal$^a$\footnote{Corresponding author, e-mail: partha@nitp.ac.in, Telephone: +91-7250276690}~, H.  Ohshima$^b$
+%  \\
+%    \textit{\small{$^a$Department of Mathematics, National Institute of Technology Patna}} \\
+%    \textit{\small{Patna-800005,  India}}    \\
+%  \textit{\small{$^b$Faculty of Pharmaceutical Sciences, Tokyo University of Science}} \\
+%\textit{\small{Noda, Chiba, Japan}}}
+ \maketitle
+
+
+
+
+
+
+
+
+\section{Governing Equation}
+We consider the electrophoresis of soft particle in a binary symmetric  electrolyte medium of valence $z_i$ (i=1,2) and bulk ionic concentration $n_0$.  The particle size is assumed to be much larger than the EDL thickness so that the particle surface can be considered to be planner. The electric field $\textbf{E}$ is set parallel to the particle surface with $E=|\textbf{E}|$. The x-axis is  taken along  perpendicular to the surface with the origin at the PEL-electrolyte interface,  as shown in Fig.\ref{Fig1}. The soft  particle comprise  of a rigid inner core  surrounded by an ion and fluid penetrable PEL of thickness $d$ with hydrodynamic penetration length $\lambda^{-1}$. The inner core of the particle is considered to be hydrophobic in nature and it bears a constant surface charge density $\sigma$. The PEL is assumed to posses a  uniform volume charge density $\rho_{fix}$ due to the immobile PEL ions. The permittivity of the PEL ($\epsilon_p$) and the electrolyte medium ($\epsilon_f$) are considered to be different. The  penetration of the $i^{\text{th}}$ ionic species inside the PEL  is controlled  by the ion partition coefficient $f_i$, which satisfy the continuity condition of ion concentration ($n_i$) at the PEL-electrolyte interface as, $n_i(d-)=f_i n_i(d+)$. The mobile ions   tries to concentrate in medium of high permittivity. The  permittivity of the PEL molecule is substantially  lower than that of the aqueous solution (Poddar et al.\cite{SC}) and hence, the ion partitioning coefficient $f_i$ ($i=1,2$) is  less than 1. The ion partition coefficient $f_i$ (i=1,2) is given by [\citealp{Garcia},\citealp{Ganjizade}]
+$$f_i=\exp\left(-\frac{\Delta W_{i}}{k_{B}T}\right)$$
+where $k_B$ and $T$ are the Boltzmann constant and absolute temperature, respectively.   The Born energy, denoted by $\Delta W_i$, is the  difference of the electrostatic energies of ions in the PEL and aqueous  media and  is given by (Born \cite{Born})
+$$\Delta W_{i}=\frac{(z_{i}e)^{2}}{8\pi r_{i}}\left\{\frac{1}{\epsilon_{d}}-\frac{1}{\epsilon_{f}}\right\}$$
+Here  $r_i$ (i=1,2) is the radius of mobile ions and $e$  is the elementary charge.  Born energy  determines the penetration of mobile electrolyte ions from the bulk solvent to the  PEL. The Born energy $\Delta W_i$ decreases with the increase of PEL permittivity and it allows  more mobile ions within the PEL. Under certain circumstances, the permittivity of the PEL ($\epsilon_p$) may be equals to that of the aqueous media ($\epsilon_f$) and in that case the value of $f_i$ ($i=1,2$) becomes 1. It may occur when the PEL has  sufficiently high water content ( Gopmandal et al.\cite{PRS}, Duval and Ohshima\cite{DO}) the PEL becomes fully penetrable of mobile ions, i.e., $\epsilon_d=\epsilon_f$ . On the otherhand for a typical PEL with permittivity ratio $\epsilon_d/\epsilon_f<<1$ where the Born energy is strong enough to restrict  the penetration of electrolyte ions across the PEL.
+
+\begin{figure}
+
+\begin{center}
+
+\caption {\label{Fig1} Schematic illustrations depicting  plate-like soft particle covered by an ion and fluid penetrable polyelectrolyte layer of thickness $d$.  }
+\end{center}
+\end{figure}
+
+
+The induced electric  potential ($\phi$) is governed by the Poisson equation which relates the induced potential with the charge density due to the mobile  ions and the immobile charges entrapped within the PEL.
+\begin{equation}
+ -\frac{d^{2}\phi}{d x^{2}}=\left\{
+                                                                  \begin{array}{ll}
+                                                                     \frac{\rho_{d}(x)}{\epsilon_{d}} & \hbox{,$-d \leq x \leq0$;} \\
+                                                                     \frac{\rho_{f}(x)}{\epsilon_{f}} & \hbox{,$0 < x <\infty$;} \\
+                                                                  \end{array}
+                                                                 \right.
+                                                               \label{1}
+\end{equation}
+Where $ {\rho_{d}(x)}=F[n_{+}(x)-n_{-}(x)+zn_{d}(x)]$ \\and $ {\rho_{f}(x)}=F[n_{+}(x)-n_{-}(x)]$ are the charge density at $x$ within the oil layer and electrolyte medium respectively. $F$ is the Faraday constant and $n_{+}(x)$ ,$n_{-}(x)$ and $n_{d}(x)$ are the molar concentration of cation,anion  in the electrolyte phase and the molar concentration of the free ion in the oil layer at a given position$x$.
+
+
+
+
+   In the PEL : \begin{equation}
+   \left\{
+                              \begin{array}{ll}
+                            n_{\pm}(x)=b_{\pm}n_{0}\exp(\mp\frac{F\phi(x)}{RT}) \\
+                       n_{d}(x)=N\exp(\frac{(-zF[\phi(x)-\phi_{D}]}{RT})     & \hbox{,$-d \le x \leq0$;} \\
+\end{array}
+\right.
+\label{2}
+\end{equation}
+In the electrolyte medium :\begin{equation}
+   \left\{
+                              \begin{array}{ll}
+                            n_{\pm}(x)=n_{0}\exp(\mp\frac{F\phi(x)}{RT})& \\
+                       n_{d}(x)=0     & \hbox{,$0 < x <\infty$;} \\
+\end{array}
+\right.
+\label{3}
+\end{equation}
+where $R$ is the universal gas constant and $T$ is the absolute temperature. Here $N$ and $n_{0}$ are the bulk molar concentration of the ions in oil layer and electrolyte medium,respectively. Let the Donnan potential in the oil layer is denoted by $\phi_{D}$ .
+The boundary conditions for $\phi(x)$ are
+ \begin{equation}
+ \left\{
+                                                                  \begin{array}{ll}
+                                                              \frac{d \phi}{d x} \mid_{x=-d}=0, &  \\
+                                                              \epsilon_{d} \frac{d \phi}{d x} \mid_{x=0^{-}}-\epsilon_{f} \frac{d \psi}{d x} \mid_{x=0^{+}}=\sigma,   &  \\
+                                                                  \phi \mid_{x=0^{-}}=\phi \mid_{x=0^{+}}, &\\
+                                                                  \phi\rightarrow 0 \hspace{.2cm} \text{as} \hspace{.2cm} x \rightarrow \infty
+                                                                  \end{array}
+                                                                 \right.
+                                                               \label{4}
+\end{equation}
+To make the above equations dimensionless we use the scaling with the transformations given by\\ $\phi=\phi_{0}\bar{\phi}$ ,$\phi_{DON}=\phi_{0}\bar{\phi_{DON}}$,$ x=d\bar{x},\rho_{d}=Fn_{0}\bar{\rho_{d}},\rho_{f}=Fn_{0}\bar{\rho_{f}},u=U_{HS}\bar{u}$ .\\
+Where variable with 'bar' represents the corresponding non-dimensional values . Here we have considered $\Phi_{0}=\frac{K_{B}T}{e}=\frac{RT}{F}, U_{HS}=\frac{\epsilon_{f}E_{0}\phi_{0}}{\mu_{f}},\sigma=\frac{\sigma d}{\phi_{0}\epsilon_{f}}$ . $\epsilon_{r}=\frac{\epsilon_{d}}{\epsilon_{f}}$ and $f=\frac{\epsilon_{d}\mu_{f}}{\epsilon_{f}\mu_{d}}$\\ \\
+Here the non-dimensional potential equation is given as
+\begin{equation}
+ -\frac{d^{2}\bar\phi}{d\bar x^{2}}=\left\{
+                                                                  \begin{array}{ll}
+                                                                     \frac{(\kappa d)^{2}}{2\epsilon_{r}}\bar{\rho_{d}} & \hbox{,$-1 \leq x \leq0$;} \\
+                                                                    \frac{(\kappa d)^{2}}{2}\bar{\rho_{f}}& \hbox{,$0 < x <\infty$;} \\
+                                                                  \end{array}
+                                                                 \right.
+                                                               \label{5}
+\end{equation}
+Where $\kappa=\sqrt{\frac{2Fn_{0}}{\phi_{0}\epsilon_{f}}}$.\\
+With non-dimensional boundary conditions are \\
+\begin{equation}
+ \left\{
+                                                                  \begin{array}{ll}
+                                                              \frac{d \bar\phi}{d\bar x} \mid_{\bar x=-1}=0, &  \\
+                                                              \epsilon_{r} \frac{d\bar \phi}{d\bar x} \mid_{\bar x=0^{-}}- \frac{d \bar\phi}{d\bar x} \mid_{\bar x=0^{+}}=\bar \sigma,   &  \\
+                                                                  \bar\phi \mid_{\bar x=0^{-}}=\bar\phi \mid_{\bar x=0^{+}}, &\\
+                                                                  \bar\phi\rightarrow 0 \hspace{.2cm} \text{as} \hspace{.2cm} \bar x \rightarrow \infty
+                                                                  \end{array}
+                                                                 \right.
+                                                               \label{6}
+\end{equation}
+Now we get the governing equation after putting the value of $\rho_{d}$ and $\rho_{f}$ in equation $(5)$ get \\
+\begin{equation}
+ \frac{d^{2}\bar\phi}{d \bar x^{2}}=\left\{
+                                                                  \begin{array}{ll}
+   -\frac{(\kappa d)^{2}}{2\epsilon_{r}}[b_{+}{e}^{-\bar\phi}-b_{-}{e}^{\bar\phi}+\frac{ZBN}{n_{0}}{e}^{-\bar\phi}] & \hbox{,$ -1 \leq \bar x \leq0$;} \\
+     -\frac{(\kappa d)^{2}}{2}[{e}^{-\bar\phi}-{e}^{\bar\phi}] & \hbox{,$0 < \bar x <\infty$;} \\
+                                                                  \end{array}
+                                                                 \right.
+                                                               \label{7}
+\end{equation}
+ Equation $(7)$ linearized non-dimensional form \\
+\begin{equation}
+ \frac{d^{2}\bar\phi}{d \bar x^{2}}=\left\{
+                                                                  \begin{array}{ll}
+                                                                 {P}^{2}\bar\phi-Q & \hbox{,$-1 \leq \bar x \leq0$;} \\
+                                                                 {R}^{2}\bar\phi & \hbox{,$0 \leq  \bar x <\infty$;} \\
+                                                                  \end{array}
+                                                                 \right.
+                                                               \label{8}
+\end{equation}
+Where $ P=\sqrt{\frac{(\kappa d)^{2}}{2\epsilon_{r}}[b_{+}+b_{-}+\frac{{Z}^{2}BN}{n_{0}}]}$ ,$ Q=\frac{(\kappa d)^{2}}{2\epsilon_{r}}[b_{+}-b_{-}+\frac{ZBN}{n_{0}}]$ ,$ R=\kappa d $ and $ B=\exp(z\bar\phi_{DON}) $.
+and $\bar\phi_{DON}=-ln[\frac{N}{2b_{+}n_{0}}+\sqrt{{(\frac{N}{2b_{+}n_{0}})^{2}}+\frac{b_{-}}{b_{+}}}]$\\
+The solution of Equation $(8)$ subject to boundary conditions Equation $(6)$ can be obtained as\\
+\begin{equation}
+ \bar\phi(x)=\left\{
+                                                                  \begin{array}{ll}
+                                                                 A\exp(P\bar x)+C\exp(-P\bar x)+\frac{Q}{{P}^{2}} & \hbox{,$-1 \leq \bar x \leq0$;} \\
+                                                                 D\exp(-R\bar x) & \hbox{,$0 \leq  \bar x <\infty$;} \\
+                                                                  \end{array}
+                                                                 \right.
+                                                               \label{9}
+\end{equation}
+$A=\frac{(\frac{\bar \sigma}{R}-\frac{Q}{{P}^{2}}){e}^{P}}{2(\cosh(P)+\frac{\epsilon_{r}P}{R}\sinh(P))}$ \\ $C=\frac{(\frac{\bar \sigma}{R}-\frac{Q}{{P}^{}2}){e}^{-P}}{2(\cosh(P)+\frac{\epsilon_{r}P}{R}\sinh(P))}$\\
+
+  $ D=\frac{\frac{Q\epsilon_{r}}{PR}\sinh(P)+\frac{\bar \sigma}{R}\cosh(P)}{\cosh(P)+\frac{\epsilon_{r}P}{R}\sinh(P)} $ \\
+
+Therefore $\phi(x)$ will be \\
+
+\begin{equation}
+ \phi(x)=
+  \left\{
+\begin{array}{ll}
+  \frac{Q}{{P}^{2}}[1-\frac{\cosh(P(x+d))}{\cosh(Pd)+\frac{\epsilon_{r}P}{R}\sinh(Pd)}] +\frac{\frac{\bar \sigma}{R}\cosh(P(x+d))}{\cosh(Pd)+\frac{\epsilon_{r}P}{R}\sinh(Pd)}                                                                                                                      & \hbox{,$-d \le x <0;$} \\ \\
+ \left[\frac{\frac{Q\epsilon_{r}}{PR}\sinh(Pd)+\frac{\bar \sigma}{R}\cosh(Pd)}{\cosh(Pd)+\frac{\epsilon_{r}P}{R}\sinh(Pd)}\right] e^{-Rx} & \hbox{,$0 \le x <\infty$} \\
+
+
+
+                                                                  \end{array}
+                                                                 \right.
+                                                                 \label{10}
+ \end{equation}
+Using the  electric potential distribution (\ref{4}), the electrophoretic velocity of the charged soft particle can be obtained as follows. Let the soft particle is moving with a velocity $U_E$ (electrophoretic velocity)  in an electrolyte  along the direction of applied electric field $\textbf{E}$. The governing equations for the fluid flow inside and outside of the PEL are given by Darcy-Brinkman and Stokes  equations, respectively and are given by
+ \begin{equation}
+ \left\{
+                                                                  \begin{array}{ll}
+  \mu_{d} \frac{d^{2} u}{d x^{2}})+\rho_d(x) E=0                  & \hbox{,$-d \le x <0$;} \\
+
+   \mu_{f}\frac{d^{2} u}{d x^{2}}+\rho_{f}(x) E=0                              & \hbox{,$0 \le x <\infty$} \\
+                                                                  \end{array}
+                                                                 \right.
+                                                               \label{11}
+\end{equation}
+where  $\rho_{d}$ and $\rho_{f}$ are  the density of the oil and  fluid .equation (\ref{5}) represents the frictional forces acting on the liquid flowing Using   equation  (\ref{4}) the  charge density $\rho_e$ can be written in terms of the electric potential. The reduced form of the governing equation for  velocity  field is
+\begin{equation}
+ \left\{
+\begin{array}{ll}
+\frac{d^{2} u}{d x^{2}}-\frac{\epsilon_{d}E}{\mu_{d}}\frac{d^{2} \phi(x)}{d x^{2}}=0  & \hbox{,$-d \le x <0$;} \\
+\frac{d^{2} u}{d x^{2}}-\frac{\epsilon_{f}E}{\mu_{f}}\frac{d^{2} \phi(x)}{d x^{2}}=0  & \hbox{,$0 \le x <\infty$} \\
+
+
+\end{array}
+\right.
+\label{12}
+\end{equation}
+boundary Condition of Equation $(12)$ is
+ \begin{equation}
+  \left\{
+   \begin{array}{ll}
+   \frac{d u}{d x}\mid_{x=-d}=0         &\\
+  u(0^{-})=u(0^{+}),&\\
+  \mu_{d}\frac{d u}{d x}\mid_{x=0^{-}}-\mu_{f}\frac{d u}{d x}\mid_{x=0^{+}}=\sigma E,  &\\
+  u \rightarrow -U  ~ \text{as} ~ x \rightarrow \infty
+   \end{array}
+  \right.
+  \label{13}
+\end{equation}
+Non-dimensional form of Equation $(12)$
+\begin{equation}
+ \left\{
+                                                                  \begin{array}{ll}
+   \frac{d^{2}\bar u}{d\bar x^{2}})=f \frac{d^{2}\bar \phi(x)}{d\bar x^{2}}                 & \hbox{,$-1 \le\bar x <0$;} \\
+
+   \frac{d^{2}\bar u}{d\bar x^{2}}= \frac{d^{2}\bar \phi(x)}{d\bar x^{2}}                             & \hbox{,$0 \le \bar x <\infty$} \\
+                                                                  \end{array}
+                                                                 \right.
+                                                               \label{14}
+\end{equation}
+
+Non-dimensional boundary Condition of Equation $(14)$ is
+ \begin{equation}
+  \left\{
+   \begin{array}{ll}
+   u\mid_{\bar x=-1}=0         &\\
+  \bar u(0^{-})=\bar u(0^{+}),&\\
+  \frac{\mu_{d}}{\mu_{f}}
+  \frac{d\bar u}{d \bar x}\mid_{\bar x=0^{-}}-\frac{d\bar  u}{d\bar  x}\mid_{\bar x=0^{+}}=\bar \sigma ,  &\\
+  u \rightarrow -U  ~ \text{as} ~ \bar x \rightarrow \infty
+   \end{array}
+  \right.
+  \label{15}
+\end{equation}
+%\begin{equation}
+%u(x)=
+ %\left\{
+  %                              \begin{array}{ll}
+   %                              k_{1}E\phi(x)+Gx+H   & \hbox{,$-d \le x <0$;} \\
+    %                             k_{2}E\phi(x)+Jx+I              & \hbox{,$0 \le x <\infty$} \\
+
+
+%\end{array}
+%\right.
+%\label{15}
+%\end{equation}
+%Where $ k_{1}=\frac{\epsilon_{d}}{\mu_{d}} $ and $ k_{2}=\frac{\epsilon_{d}}{\mu_{d}}$\\$ G=0$\\ $J=0$\\$H=-k_{1}E\phi{(-d)}$\\ $I=-Ek_{2}[(1-f)\phi{(0)}-f\phi{(-d)}]$\\ Dimensional$u(x)$ is given as
+%\begin{equation}
+%u(x)=
+% \left\{
+ %                               \begin{array}{ll}
+  %                               k_{1}E\phi(x)-k_{1}E\phi{(-d)}  & \hbox{,$-d \le x <0$;} \\
+   %                              k_{2}E\phi(x)-Ek_{2}[(1-f)\phi{(0)}-f\phi{(-d)}]            & \hbox{,$0 \le x <\infty$} \\
+
+
+%\end{array}
+%\right.
+%\label{16}
+%\end{equation}
+Non-Dimensional$u(x)$ is given as
+\begin{equation}
+\bar u(x)=
+ \left\{
+                                \begin{array}{ll}
+                                f[\bar \phi(\bar x)-\phi{(-1)}]  & \hbox{,$-1 \le \bar x <0$;} \\
+                                 \bar \phi(\bar x)-(1-f)\phi{(0)}-f\phi{(-1)}            & \hbox{,$0 \le \bar x <\infty$} \\
+
+
+\end{array}
+\right.
+\label{16}
+\end{equation}
+Where $ \phi(0)=\frac{\frac{Q\epsilon_{r}}{PR}\sinh(P)+\frac{\bar \sigma}{R}\cosh(P)}{\cosh(P)+\frac{\epsilon_{r}P}{R}\sinh(P)} $ \\
+$\phi(-1)=\frac{Q}{{P}^{2}}[1-\frac{1}{\cosh(P)+\frac{\epsilon_{r}P}{R}\sinh(P)}] +\frac{\frac{\bar \sigma}{R}}{\cosh(P)+\frac{\epsilon_{r}P}{R}\sinh(P)} $ \\
+The outer surface of the inner core ($x=-d$) considered to be hydrophobic  and  the Navier slip boundary condition i.e., the  slip velocity on the core surface  proportional to the shear strain rate is expressed in the first condition of equation  (\ref{7}). The proporti
+onality constant $\beta$ in equation (\ref{7}) represents  the dimensional slip length. The solution of equation (\ref{6}) subject to the boundary condition (\ref{7}) can be obtained as
+\begin{equation}
+ u(x)=
+  \left\{
+\begin{array}{ll}
+ f\left[\frac{\frac{Q}{{P}^{2}}[1-\cosh(P(x+d))] +\frac{\bar \sigma}{R}[\cosh(P(x+d))-1]}{(\cosh(Pd)+\frac{\epsilon_{r}P}{R}\sinh(Pd))}\right]  & \hbox{,$-d \le x <0;$} \\ \\
+ \left[\frac{Q\epsilon_{r}\sinh(Pd)}{PR(\cosh(Pd)+\frac{\epsilon_{r}P}{R}\sinh(Pd))} + \frac{\bar \sigma\cosh(Pd)}{R(\cosh(Pd)+\frac{\epsilon_{r}P}{R}\sinh(Pd))}\right] e^{-Rx} -\\ f\left[[\frac{Q}{{P}^{2}}[1-\frac{1}{\cosh(Pd)+\frac{\epsilon_{r}P}{R}\sinh(Pd)}] +\frac{\bar \sigma}{R(\cosh(Pd)+\frac{\epsilon_{r}P}{R}\sinh(Pd))}\right]-\\
+ (1-f)\left[\frac{\frac{Q\epsilon_{r}}{PR}(\sinh(Pd))+\frac{\bar \sigma}{R}(\cosh(Pd))}{\cosh(Pd)+\frac{\epsilon_{r}P}{R}\sinh(Pd)} \right] & \hbox{,$0 \le x <\infty$} \\
+\end{array}
+\right.
+\label{17}
+ \end{equation}
+The velocity profile out side the PEL contains the  values of $u$ and $\psi$ at the PEL-electrolyte interface, which are estimated from (\ref{4}) and (\ref{8}), respectively.
+\subsection{Electrophoretic mobility}
+
+The electrophoretic mobility $\mu_E$ is defined as $\mu_E=-u(\infty)/E$ can be obtained as
+\begin{equation}\label{9}
+  \mu_E =f\frac{Q}{{P}^{2}}[1-\frac{1}{\cosh(P)+\frac{\epsilon_{r}P}{R}\sinh(P)}]+\\
+  \frac{\frac{Q\epsilon_{r}}{PR}(1-f)\sinh(P)+\frac{\bar \sigma}{R}[(1-f)\cosh(P)+f]}{\cosh(P)+\frac{\epsilon_{r}P}{R}\sinh(P))}
+\end{equation}
+%where the values of $P,Q$,$R$ and $S$ are as follows
+% \begin{equation}
+ % \left\{
+  % \begin{array}{ll}
+ % P=\psi(-d)=\frac{\rho_{fix}}{\epsilon_{p}\kappa^{2}_{1}}\left[1-\frac{\epsilon_{f} \kappa}{\epsilon_{p} \kappa_{1}}\frac{1}{\sinh(\kappa_{1} d)+\frac{\epsilon_{f} \kappa}{\epsilon_{p} \kappa_{1}}\cosh(\kappa_{1} d)}\right]
+% +\frac{\sigma}{\epsilon_{p} \kappa_{1}}\left[\frac{\cosh(\kappa_{1} d)+\frac{\epsilon_{f} \kappa}{\epsilon_{p} \kappa_{1}}\sinh(\kappa_{1}d)}{\sinh(\kappa_{1} d)+\frac{\epsilon_{f} \kappa}{\epsilon_{p} \kappa_{1}}\cosh(\kappa_{1} d)}\right]         &\\
+% Q=-\beta \frac{d \psi}{dx}\mid_{x=-d}=\beta \frac{\sigma}{\epsilon_{p}}&\\
+ % R=\frac{\rho_{fix}}{\epsilon_{p}\kappa^{2}_{1}}\left[\frac{\cosh(\lambda d)-1}{\lambda}+\beta \lambda\frac{\sinh(\lambda d)}{\lambda}-(A_{1}+\beta \lambda B_{1})\right]+ \\~~~~~~ \left[ \frac{\frac{\sigma}{\epsilon_{p} \kappa_{1}}+\frac{\rho_{fix}}{\epsilon_{p}\kappa^{2}_{1}} \sinh(\kappa_{1} d)}{\sinh(\kappa_{1} d)+\frac{\epsilon_{f} \kappa}{\epsilon_{p} \kappa_{1}}\cosh(\kappa_{1} d)} \right]   \left[(A_{1}+\beta \lambda B_{1})-\frac{\epsilon_{f} \kappa}{\epsilon_{p} \kappa_{1}}(C_{1}+\beta \lambda D_{1})\right]             &\\
+ % S= \frac{\frac{\sigma}{\epsilon_{p} \kappa_{1}}+\frac{\rho_{fix}}{\epsilon_{p}\kappa^{2}_{1}} \sinh(\kappa_{1} d)}{\sinh(\kappa_{1} d)+\frac{\epsilon_{f} \kappa}{\epsilon_{p} \kappa_{1}}\cosh(\kappa_{1} d)}
+%   \end{array}
+ % \right.
+ % \label{10}
+%\end{equation}
+%with  $A_{1}=\frac{\lambda}{\lambda^{2}-\kappa^{2}_{1}}(\cosh(\lambda d)-\cosh(\kappa_{1} d))$,   $B_{1}=\frac{\lambda \sinh(\lambda d)-\kappa_{1} \sinh(\kappa_{1} d)}{\lambda^{2}-\kappa^{2}_{1}}$, $C_{1}=\frac{\lambda \sinh(\kappa_{1} d)-\kappa_{1} \sinh(\lambda d)}{\lambda^{2}-\kappa^{2}_{1}}$ and   $D_{1}=\frac{-\kappa_{1}}{\lambda^{2}-\kappa^{2}_{1}}(\cosh(\lambda d)-\cosh(\kappa_{1} d))$.
+%The mobility expression (\ref{9}) for the soft particle with hydrophobic .... can be reduced to the case of a soft particle with hydrophilic uncharged inner core and the same dielectric permittivity of the PEL and the electrolyte can be expressed as
+%
+
+
+%
+%$$P=\psi(-d)=\frac{\rho_{fix}}{\epsilon_{p}\kappa^{2}_{1}}\left[1-\frac{\epsilon_{f} \kappa}{\epsilon_{p} \kappa_{1}}\frac{1}{\sinh(\kappa_{1} d)+\frac{\epsilon_{f} \kappa}{\epsilon_{p} \kappa_{1}}\cosh(\kappa_{1} d)}\right]
+% +\frac{\sigma}{\epsilon_{p} \kappa_{1}}\left[\frac{\cosh(\kappa_{1} d)+\frac{\epsilon_{f} \kappa}{\epsilon_{p} \kappa_{1}}\sinh(\kappa_{1}d)}{\sinh(\kappa_{1} d)+\frac{\epsilon_{f} \kappa}{\epsilon_{p} \kappa_{1}}\cosh(\kappa_{1} d)}\right]$$\\
+%$Q=-\beta \frac{d \psi}{dx}\mid_{x=-d}=\beta \frac{\sigma}{\epsilon_{p}}$\\
+%$R=\frac{\rho_{fix}}{\epsilon_{p}\kappa^{2}_{1}}\left[\frac{\cosh(\lambda d)-1}{\lambda}+\beta \lambda\frac{\sinh(\lambda d)}{\lambda}-(A_{1}+\beta \lambda B_{1})\right]+$\\
+%$$\frac{\frac{\sigma}{\epsilon_{p} \kappa_{1}}+\frac{\rho_{fix}}{\epsilon_{p}\kappa^{2}_{1}} \sinh(\kappa_{1} d)}{\sinh(\kappa_{1} d)+\frac{\epsilon_{f} \kappa}{\epsilon_{p} \kappa_{1}}\cosh(\kappa_{1} d)}\left[(A_{1}+\beta \lambda B_{1})-\frac{\epsilon_{f} \kappa}{\epsilon_{p} \kappa_{1}}(C_{1}+\beta \lambda D_{1})\right]$$\\
+%
+% $A_{1}=\frac{\lambda}{\lambda^{2}-\kappa^{2}_{1}}(\cosh(\lambda d)-\cosh(\kappa_{1} d))$ \\  $B_{1}=\frac{\lambda \sinh(\lambda d)-\kappa_{1} \sinh(\kappa_{1} d)}{\lambda^{2}-\kappa^{2}_{1}}$\\
+%$C_{1}=\frac{\lambda \sinh(\kappa_{1} d)-\kappa_{1} \sinh(\lambda d)}{\lambda^{2}-\kappa^{2}_{1}}$ \\   $D_{1}=\frac{-\kappa_{1}}{\lambda^{2}-\kappa^{2}_{1}}(\cosh(\lambda d)-\cosh(\kappa_{1} d))$
+
+
+%
+%\begin{equation}\label{12}
+%  \mu=\mu_{\rho_{fix}}+\mu_{\sigma}
+%\end{equation}
+
+
+
+
+
+\newpage
+$y=y(x)$, $f(x)=x^{n}+\exp(x+\sin x)$,$h(x,y)=\frac{xy}{x^{2}+y^{2}}$, $F(x,y,z)=x(y+z)+\exp(z(x-y))$, $z(x,y)=(x+y,x-y)$,...etc.\\
+
+\end{document} 
